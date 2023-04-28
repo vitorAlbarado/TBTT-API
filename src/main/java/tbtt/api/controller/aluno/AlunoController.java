@@ -1,4 +1,4 @@
-package tbtt.api.controller;
+package tbtt.api.controller.aluno;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -8,10 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tbtt.api.DTO.aluno.AlunoDados;
-import tbtt.api.DTO.aluno.ListagemAluno;
-import tbtt.api.Repository.AlunoRepository;
-import tbtt.api.model.aluno.Aluno;
+import tbtt.api.domain.DTO.aluno.AlunoDados;
+import tbtt.api.domain.DTO.aluno.ListagemAluno;
+import tbtt.api.domain.Repository.AlunoRepository;
+import tbtt.api.domain.model.aluno.Aluno;
 
 @RestController
 @RequestMapping("alunos")
