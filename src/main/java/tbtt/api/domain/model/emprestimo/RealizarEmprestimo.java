@@ -28,8 +28,8 @@ public class RealizarEmprestimo {
         }
         var aluno = validaAluno(dados);
         var livro = livroRepository.getReferenceById(dados.idLivro());
-        var emprestimo = new Emprestimo(null, aluno, livro, dados.data(), dados.prazo(),true);
-        emprestimoRepository.save(emprestimo);
+        //var emprestimo = new Emprestimo(null, aluno, livro, dados.data(), dados.prazo(),true);
+       // emprestimoRepository.save(emprestimo);
     }
 
     private Aluno validaAluno(EmprestimoDados dados) {
@@ -39,7 +39,7 @@ public class RealizarEmprestimo {
         if (!alunoRepository.existsById(dados.idAluno())) {
             throw new ValidacaoException("Aluno não encontrado");
         }
-        var alunoApto = alunoRepository.AlunoSemPendencia(dados.idAluno());
+        //var alunoApto = alunoRepository.AlunoSemPendencia(dados.idAluno());
 
 
 
