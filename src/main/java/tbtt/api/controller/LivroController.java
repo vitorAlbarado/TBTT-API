@@ -1,4 +1,4 @@
-package tbtt.api.controller.livro;
+package tbtt.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -7,8 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tbtt.api.domain.DTO.livro.ListagemLivro;
-import tbtt.api.domain.DTO.livro.LivrosDados;
+import tbtt.api.domain.model.livro.LivrosDados;
 import tbtt.api.domain.Repository.LivroRepository;
 import tbtt.api.domain.model.livro.Livro;
 
@@ -28,9 +27,9 @@ public class LivroController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ListagemLivro>> listar(Pageable pageable ){
-        var page = repository.findAll(pageable).map(ListagemLivro::new);
-        return ResponseEntity.ok(page);
+    public ResponseEntity<Page<Livro>> listar(Pageable pageable ){
+
+        return ResponseEntity.ok(repository.findAll(pageable));
 
     }
 }

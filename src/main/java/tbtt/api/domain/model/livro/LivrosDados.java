@@ -1,4 +1,4 @@
-package tbtt.api.domain.DTO.livro;
+package tbtt.api.domain.model.livro;
 
 import jakarta.validation.constraints.NotBlank;
 import tbtt.api.domain.model.livro.Genero;

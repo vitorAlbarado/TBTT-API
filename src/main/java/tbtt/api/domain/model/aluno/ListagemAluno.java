@@ -1,4 +1,4 @@
-package tbtt.api.domain.DTO.aluno;
+package tbtt.api.domain.model.aluno;
 
 import tbtt.api.domain.model.aluno.Aluno;
 

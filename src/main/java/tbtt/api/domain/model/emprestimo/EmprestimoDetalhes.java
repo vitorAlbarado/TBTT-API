@@ -1,4 +1,4 @@
-package tbtt.api.domain.DTO.emprestimo;
+package tbtt.api.domain.model.emprestimo;
 
 import tbtt.api.domain.model.emprestimo.Emprestimo;
 

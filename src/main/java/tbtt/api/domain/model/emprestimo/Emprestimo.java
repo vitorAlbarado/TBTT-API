@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import tbtt.api.domain.DTO.emprestimo.EmprestimoDados;
 import tbtt.api.domain.model.aluno.Aluno;
 import tbtt.api.domain.model.livro.Livro;
 
@@ -17,6 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
+
 public class Emprestimo {
 
     @Id
@@ -32,7 +32,14 @@ public class Emprestimo {
     private Livro livro;
 
     private LocalDateTime data;
-    private int prazo;
     private Boolean ativo;
+    private int prazo;
+
+    public Emprestimo(EmprestimoDados dados){
+
+    }
+
+
+
 
 }

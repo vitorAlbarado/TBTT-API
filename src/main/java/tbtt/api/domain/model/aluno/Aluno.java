@@ -1,18 +1,13 @@
 package tbtt.api.domain.model.aluno;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import tbtt.api.domain.DTO.aluno.AlunoDados;
+import lombok.*;
 
 @Entity(name = "aluno")
 @Table(name = "alunos")
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
+@AllArgsConstructor
 public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +17,12 @@ public class Aluno {
     private String turma;
 
     public Aluno(AlunoDados dados){
-        this.matricula = dados.matricula();
         this.nome = dados.nome();
+        this.matricula = dados.matricula();
         this.turma = dados.turma();
+
     }
+    public Aluno(){}
+
 
 }

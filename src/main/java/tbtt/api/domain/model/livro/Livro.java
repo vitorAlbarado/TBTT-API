@@ -4,15 +4,13 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import tbtt.api.domain.DTO.livro.LivrosDados;
 
 
 @Entity(name = "livro")
 @Table(name = "livros")
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
+
 @EqualsAndHashCode(of = "id")
 public class Livro {
 
@@ -28,6 +26,9 @@ public class Livro {
         this.titulo = dados.titulo();
         this.autor = dados.autor();
         this.genero = dados.genero();
+    }
+    public Livro(){
+
     }
 
 }

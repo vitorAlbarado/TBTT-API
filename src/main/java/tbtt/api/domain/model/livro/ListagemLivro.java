@@ -1,4 +1,4 @@
-package tbtt.api.domain.DTO.livro;
+package tbtt.api.domain.model.livro;
 
 import tbtt.api.domain.model.livro.Genero;
 import tbtt.api.domain.model.livro.Livro;

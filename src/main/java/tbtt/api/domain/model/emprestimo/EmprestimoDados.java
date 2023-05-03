@@ -1,4 +1,4 @@
-package tbtt.api.domain.DTO.emprestimo;
+package tbtt.api.domain.model.emprestimo;
 
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
@@ -11,7 +11,6 @@ public record EmprestimoDados(
         @NotNull
         Long idLivro,
         @NotNull
-//        @Future
         LocalDateTime data,
         int prazo
 ) {
