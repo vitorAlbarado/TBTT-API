@@ -10,4 +10,7 @@ public record AlunoDados(
         @NotBlank
         String matricula
         ) {
+        public AlunoDados(Aluno dados){
+                this(dados.getNome(), dados.getTurma(), dados.getMatricula());
+        }
 }

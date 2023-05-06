@@ -24,5 +24,12 @@ public class Aluno {
     }
     public Aluno(){}
 
+    public void atualizarDados(AlunoDadosAtualizados dados){
+        if (dados.nome() != null){this.nome = dados.nome();}
+        if (dados.matricula() != null){this.matricula = dados.matricula();}
+        if (dados.turma() != null){this.turma = dados.turma();}
+
+    }
+
 
 }
