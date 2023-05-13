@@ -30,5 +30,9 @@ public class Livro {
     public Livro(){
 
     }
+    public void atualizarDados(LivrosDadosAtualizados dados){
+        if (dados.titulo() != null){this.titulo = dados.titulo();}
+        if (dados.autor() !=null){this.autor = dados.autor();}
+    }
 
 }
