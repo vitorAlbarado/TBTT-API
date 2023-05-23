@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public record EmprestimoDados(
         @NotNull
@@ -14,4 +15,7 @@ public record EmprestimoDados(
         LocalDateTime data,
         int prazo
 ) {
+        public EmprestimoDados(Emprestimo dados){
+                this(dados.getAluno().getId(),dados.getLivro().getId(),dados.getData(), dados.getPrazo());
+        }
 }

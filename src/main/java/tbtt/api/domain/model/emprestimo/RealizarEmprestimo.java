@@ -1,18 +1,12 @@
 package tbtt.api.domain.model.emprestimo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import tbtt.api.domain.Repository.AlunoRepository;
 import tbtt.api.domain.Repository.EmprestimoRepository;
 import tbtt.api.domain.Repository.LivroRepository;
-import tbtt.api.domain.model.aluno.Aluno;
 import tbtt.api.infra.exception.ValidacaoException;
-
 import java.time.LocalDateTime;
-import java.util.Iterator;
-import java.util.Optional;
 
 @Service
 public class RealizarEmprestimo {
@@ -25,7 +19,7 @@ public class RealizarEmprestimo {
     private EmprestimoRepository emprestimoRepository;
 
     public void emprestar(EmprestimoDados dados) {
-
+        System.out.println(dados.data());
 
         var alunoComEmprestimoAtivo = emprestimoRepository.alunoComPendencia(dados.idAluno());
 
@@ -41,13 +35,11 @@ public class RealizarEmprestimo {
             alunoComEmprestimoAtivo.forEach(e -> verificaEmprestimoAtivo(e));
             System.out.println(alunoComEmprestimoAtivo);
         }
-
-
-
         var aluno = alunoRepository.findById(dados.idAluno()).get();
         var livro = livroRepository.findById(dados.idLivro()).get();
         var emprestimo = new Emprestimo(null,aluno,livro,dados.data(),true, dados.prazo());
         emprestimoRepository.save(emprestimo);
+
    }
 
     private void verificaEmprestimoAtivo(Long e) {
@@ -59,6 +51,4 @@ public class RealizarEmprestimo {
             throw new ValidacaoException("Aluno com emprestimo ativo");
         }
     }
-
-
 }

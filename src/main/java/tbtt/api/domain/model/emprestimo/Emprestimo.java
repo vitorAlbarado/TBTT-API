@@ -40,6 +40,12 @@ public class Emprestimo {
     }
 
 
-
-
+    public void atualizar(EmprestimoDadosAtualizados dados) {
+        if (!dados.ativo()){
+            this.ativo=dados.ativo();
+        }
+        if (dados.prazo() != 0){
+            this.prazo=dados.prazo();
+        }
+    }
 }

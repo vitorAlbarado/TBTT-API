@@ -39,5 +39,9 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo,Long>{
     )
     Long LivroEmprestado(Long idLivro);
 
+    Emprestimo findByAluno(Long aluno);
+
+
+
 
 }
