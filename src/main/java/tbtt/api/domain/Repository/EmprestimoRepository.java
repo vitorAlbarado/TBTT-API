@@ -39,7 +39,16 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo,Long>{
     )
     Long LivroEmprestado(Long idLivro);
 
-    Emprestimo findByAluno(Long aluno);
+    @Query("""
+            select e
+            from Emprestimo e 
+            where
+            e.livro.id = :idLivro
+            and
+            e.ativo != 0
+            
+            """)
+    Emprestimo findByLivro(Long idLivro);
 
 
 

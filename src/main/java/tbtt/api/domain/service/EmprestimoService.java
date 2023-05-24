@@ -28,7 +28,6 @@ public class EmprestimoService {
 
     @Transactional(readOnly = true)
     public Page<EmprestimoDetalhes> findAll(Pageable pageable) {
-
         var emprestimo = repository.findAll(pageable);
         var emprestimoDetalhado = emprestimo.getContent().stream().map(EmprestimoDetalhes::new).toList();
         int pageNumber = pageable.getPageNumber();
@@ -36,9 +35,15 @@ public class EmprestimoService {
         Long totalElements = repository.count();
         PageRequest pageRequest = PageRequest.of(pageNumber,pageSize);
         Page<EmprestimoDetalhes> page = new PageImpl<>(emprestimoDetalhado,pageRequest,totalElements);
-
-
         return page;
+    }
+    @Transactional
+    public EmprestimoDetalhes findByLivro(Long idLivro){
+        var emprestimo = repository.findByLivro(idLivro);
+        if (emprestimo == null){
+            throw new ValidacaoException("Nenhum emprestimo ativo com o livro informado!");
+        }
+        return new EmprestimoDetalhes(emprestimo);
     }
     @Transactional
     public Emprestimo atualizar(EmprestimoDadosAtualizados dados) {
@@ -46,8 +51,5 @@ public class EmprestimoService {
         emprestimo.atualizar(dados);
         return emprestimo;
     }
-    @Transactional
-    public Emprestimo findByAluno(Long aluno){
-        return repository.findByAluno(aluno);
-    }
+
 }

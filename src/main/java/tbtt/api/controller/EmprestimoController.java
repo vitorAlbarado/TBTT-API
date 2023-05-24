@@ -36,10 +36,11 @@ public class EmprestimoController {
         var emprestimos = emprestimoService.findAll(pageable);
         return ResponseEntity.ok(emprestimos);
     }
-    @GetMapping("/{idAluno}")
-    public ResponseEntity<EmprestimoDetalhes>buscaPorAluno(@PathVariable Long idAluno){
-        var emprestimo = emprestimoService.findByAluno(idAluno);
-        return ResponseEntity.ok(new EmprestimoDetalhes(emprestimo));
+    @GetMapping("/{idLivro}")
+    public ResponseEntity<EmprestimoDetalhes>buscaPorAluno(@PathVariable Long idLivro){
+
+        var emprestimo = emprestimoService.findByLivro(idLivro);
+        return ResponseEntity.ok(emprestimo);
     }
 
     @PutMapping
